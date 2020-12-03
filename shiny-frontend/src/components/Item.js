@@ -4,6 +4,7 @@ import MainContainer from "./MainContainer";
 
 
 const Item = (props) => {
+   
 
     return (
         <div>
@@ -11,7 +12,7 @@ const Item = (props) => {
             <h2>{props.jewelry.name}</h2>
             <h3>{props.jewelry.price}</h3>
             <p>{props.jewelry.description}</p>
-            { <button>Delete</button>  }
+            { <button onClick={() => props.removeItem(props.jewelry)}>Delete</button>  }
             
         </div>
     )

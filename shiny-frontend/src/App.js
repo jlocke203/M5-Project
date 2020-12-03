@@ -37,6 +37,12 @@ function App() {
 
   }
 
+const removeItem = (removedJewelry) => {
+  setCart(
+    cart.filter((jewelry) => jewelry != removedJewelry)
+  )
+}
+
   const addToCart = (jewelry) => {
     console.log("we hea")
     setCart([...cart, jewelry])
@@ -121,7 +127,7 @@ function App() {
 
 
       {user ? (
-        <MainContainer handleLogout={handleLogout} addToCart={addToCart} page={page} cart={cart} />
+        <MainContainer handleLogout={handleLogout} addToCart={addToCart} page={page} cart={cart} removeItem={removeItem} />
       ) : (
           <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} handleSignup={handleSignup} hasAccount={hasAccount} setHasAccount={setHasAccount} emailError={emailError} passwordError={passwordError} />
 

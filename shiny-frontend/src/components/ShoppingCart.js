@@ -52,6 +52,8 @@ function ShoppingCart(props) {
                     <Item
                     key={jewelry.id}
                     jewelry={jewelry}
+                    cart={props.cart}
+                    removeItem={props.removeItem}
                     
                     
                     />

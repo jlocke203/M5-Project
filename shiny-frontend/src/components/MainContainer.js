@@ -14,7 +14,7 @@ const MainContainer = (props) => {
     
     return(
         <div>
-            {props.page === 'cart' ? <ShoppingCart cart ={props.cart} page={props.page}/> : <JewelryContainer addToCart={props.addToCart}/>}
+            {props.page === 'cart' ? <ShoppingCart cart ={props.cart} page={props.page} removeItem={props.removeItem}/> : <JewelryContainer addToCart={props.addToCart}/>}
             
         </div>
     )
