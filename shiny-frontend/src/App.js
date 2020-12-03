@@ -15,16 +15,32 @@ import 'firebase/database';    // for realtime database
 import 'firebase/firestore';   // for cloud firestore
 import 'firebase/messaging';   // for cloud messaging
 import 'firebase/functions';   // for cloud functions
+import ShoppingCart from './components/ShoppingCart';
+import MainContainer from './components/MainContainer';
 
 
+const PAGE_JEWLERY = 'jewlContainer'
+const PAGE_CART = 'cart'
 
 function App() {
+  const [page, setPage] = useState('products')
+  const [cart, setCart] = useState([])
   const [user, setUser] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const [hasAccount, setHasAccount] = useState('')
+
+  const navigateTo = (nextPage) => {
+    setPage(nextPage)
+
+  }
+
+  const addToCart = (jewelry) => {
+    console.log("we hea")
+    setCart([...cart, jewelry])
+  }
 
   const clearInputs = () => {
     setEmail('')
@@ -94,19 +110,27 @@ function App() {
 
 
   return (
-  
-    <div className="App">
-      {user ? (
-<JewelryContainer handleLogout={handleLogout}/>
-      ) : (
-        <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} handleSignup={handleSignup} hasAccount={hasAccount} setHasAccount={setHasAccount} emailError={emailError} passwordError={passwordError}/>
 
-      )}
+    <div className="App">
+      <header>
+        <button onClick={() => navigateTo(PAGE_CART)}> View Cart ({cart.length})</button>
+        <button onClick={() => navigateTo(PAGE_JEWLERY)}>View Ice</button>
+      </header>
+      {/* {page === PAGE_JEWLERY && <JewelryContainer addToCart={addToCart}/>}
+      {page === PAGE_CART && <ShoppingCart />} */}
+
+
+      {user ? (
+        <MainContainer handleLogout={handleLogout} addToCart={addToCart} page={page} cart={cart} />
+      ) : (
+          <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} handleSignup={handleSignup} hasAccount={hasAccount} setHasAccount={setHasAccount} emailError={emailError} passwordError={passwordError} />
+
+        )}
       <h1>Coolio ?</h1>
       {/* <JewelryContainer/>
        */}
       {/* <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} handleSignup={handleSignup} hasAccount={hasAccount} setHasAccount={setHasAccount} emailError={emailError} passwordError={passwordError}/> */}
-       {/* <Route exact path="/jewelries" render={(routeProps)=><JewelryList {...routeProps} jewelries={this.state.allJewelry} addToCart={this.addToCart} callClick={this.calledClick} /> } /> */}
+      {/* <Route exact path="/jewelries" render={(routeProps)=><JewelryList {...routeProps} jewelries={this.state.allJewelry} addToCart={this.addToCart} callClick={this.calledClick} /> } /> */}
 
       {/* <CustomPieceForm/> */}
     </div>

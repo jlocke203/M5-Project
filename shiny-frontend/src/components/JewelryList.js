@@ -4,26 +4,30 @@ import ShoppingCart from "./ShoppingCart.js";
 
 
 
+
 class JewelryList extends React.Component {
     
 
     render() {
        
-        console.log(this.props.jewelries)
+      
+        
         return(
-           <div>
+            <div>
+            {/* <ShoppingCart jewelries={this.props.jewelries}/> */}
         {/* {this.props.jewelries.map(jewelry => <Jewelry jewelries={jewelry} key={jewelry.id} />)} */}
         {this.props.jewelries.map(jewelry => {
+           
 				return (
-                    // console.log(jewelry)
 					<Jewelry
 						key={jewelry.id}
-						jewelry={jewelry}
+                        jewelry={jewelry}
+						addToCart={this.props.addToCart}
 						
-						
-					/>
-				);
-			})}
+                        />
+                        );
+                    })}
+                   
           </div>
         )
     }

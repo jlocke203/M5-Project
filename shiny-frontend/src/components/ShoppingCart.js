@@ -1,62 +1,75 @@
-import React, { Component } from 'react';
+
 import EditForm from './EditForm';
+import React, { useState, useEffect } from "react"
+import Jewelry from "./Jewelry"
+import Item from "./Item"
 
-class ShoppingCart extends Component {
 
-    state={
-        isClicked: false,
-        display: false,
-        Items: [],
-        count: 0
-    }
+function ShoppingCart(props) {
 
-    incrementMe = () => {
-        let newCount = this.state.count + 1
-    this.setState({
-      count: newCount
-    })
-    }
 
-    handleClick = () => {
-        let newBoolean = !this.state.display;
-        this.setState({
-          display: newBoolean,
-        });
-      };
 
-    handledClick = (e) => {
-        this.setState({
-            
-            isClicked: !this.state.isClicked
 
-        })
 
-        
-    }
+    // incrementMe = () => {
+    //     let newCount = this.state.count + 1
+    // this.setState({
+    //   count: newCount
+    // })
+    // }
 
-    
+    // handleClick = () => {
+    //     let newBoolean = !this.state.display;
+    //     this.setState({
+    //       display: newBoolean,
+    //     });
+    //   };
 
-    render() {
-        return (
-           <div>
-                My ShoppingCart
-                {this.props.jewelries.map(jewl => {
-                    return <li>
-                        {jewl.name}   
-                        <br></br>
-                        ${jewl.price}
-                        <br></br>
-                        {jewl.description}
-                        <br></br>
-                        {jewl.id}
-                        {this.state.display ? <EditForm id={jewl.id} editItem = {this.props.editItem} /> : null}
-                        <button onClick={() => this.props.deleteItem(this.props.jewelries.id)}>Delete</button>
-                <button onClick={this.incrementMe} >Like: {this.state.count}</button>
-                    </li>
+    // handledClick = (e) => {
+    //     this.setState({
+
+    //         isClicked: !this.state.isClicked
+
+    //     })
+
+
+    // }
+
+
+
+
+    // const [cart, setCart] = useState([])
+    return (
+        <div className="cart">
+            <h1>Cart</h1>
+            {/* //            <header>
+    //     <button>Go to Cart ({cart.length})</button>
+    //   </header> */}
+            {props.cart.map(jewelry => {
+                <button disabled={props.cart.includes(jewelry.id)}>...</button>
+                console.log(jewelry)
+                return (
+                    <Item
+                    key={jewelry.id}
+                    jewelry={jewelry}
+                    
+                    
+                    />
+                    );
                 })}
-           </div>
-        )
-    }
+            {/* {props.cart.map((jewelry, idx) => {
+                        return (
+                            // console.log(jewelry)
+                            <Jewelry
+                                key={idx}
+                                jewelry={jewelry}
+                                
+                                />
+                                );
+                    })} */}
+        </div>
+    )
 }
+
 
 export default ShoppingCart;

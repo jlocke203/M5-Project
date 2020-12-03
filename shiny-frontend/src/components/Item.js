@@ -1,12 +1,9 @@
-// import React, { Component } from "react";
-import EditForm from "./EditForm";
-import firebase from 'firebase/app';
 import React, { useState, useEffect } from "react"
 import MainContainer from "./MainContainer";
 
 
 
-const Jewelry = (props) => {
+const Item = (props) => {
 
     return (
         <div>
@@ -14,10 +11,10 @@ const Jewelry = (props) => {
             <h2>{props.jewelry.name}</h2>
             <h3>{props.jewelry.price}</h3>
             <p>{props.jewelry.description}</p>
-            { <button onClick={(e) => props.addToCart(props.jewelry)}>Add-To-Cart</button>  }
+            { <button>Delete</button>  }
             
         </div>
     )
 }
 
-export default Jewelry
+export default Item

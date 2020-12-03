@@ -6,7 +6,10 @@ import CustomPieceForm from "./CustomPieceForm"
 
 
 
+
+
 class JeweleryContainer extends Component {
+    
 
     state = {
         allJewelry: []
@@ -58,11 +61,12 @@ class JeweleryContainer extends Component {
         console.log(this.state.allJewelry)
         return(
            
-            <div>
+            <div className="jewlContainer">
+                {/* <ShoppingCart jewelries={this.state.allJewelry}/> */}
                 {/* <CustomPieceForm addToCart={this.addToCart}/> */}
                 {/* <button onClick={this.updateFilter}>Necklaces</button> */}
                <button onClick={this.props.handleLogout}>Logout</button>
-               <JewelryList jewelries={this.state.allJewelry}  /> 
+               <JewelryList jewelries={this.state.allJewelry} addToCart={this.props.addToCart}  /> 
                
 
             </div>
