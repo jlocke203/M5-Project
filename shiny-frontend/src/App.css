@@ -24,9 +24,31 @@
   color: white;
 }
 
-.App-link {
+.mr-auto {
   color: #61dafb;
 }
+
+.ice{
+  border: 1px turquoise;
+
+ 
+  
+  
+}
+
+.jewlImg {
+  width: 65%
+}
+
+.cards{
+  display: flex;
+}
+
+
+
+
+
+
 
 @keyframes App-logo-spin {
   from {

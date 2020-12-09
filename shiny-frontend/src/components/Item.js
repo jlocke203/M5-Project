@@ -10,8 +10,9 @@ const Item = (props) => {
         <div>
             <img src={props.jewelry.image} />
             <h2>{props.jewelry.name}</h2>
-            <h3>{props.jewelry.price}</h3>
+            <h3>${props.jewelry.price}</h3>
             <p>{props.jewelry.description}</p>
+            {/* <p>{props.jewelry.quantity}</p> */}
             { <button onClick={() => props.removeItem(props.jewelry)}>Delete</button>  }
             
         </div>

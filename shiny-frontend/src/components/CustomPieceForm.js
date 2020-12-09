@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Form, Row, Col, Button} from "react-bootstrap"
 
  class CustomPieceFoem extends Component {
      state = {
@@ -23,16 +24,27 @@ import React, { Component } from "react";
 
      render(){
          return(
-            <div>
-                <h1>CustomPiece Form</h1>
-                <form onSubmit={(e) => this.handleSubmit(e)}>
-                <label for="description">DESCRIPTION:</label>
-                <input onChange={this.handleChange} type="text" id="description" name="description"></input>
-                <label for="price">WTP:</label>
-                <input onChange={this.handleChange} type="price" id="price" name="price"></input>
-                <input type="submit"></input>
-                </form>
-            </div>
+            <Form>
+            <Row>
+              <Col>
+                <Form.Control placeholder="Description" />
+              </Col>
+              <Col>
+                <Form.Control placeholder="Amount" />
+              </Col>
+            </Row>
+              <Button variant="success">Send</Button>{''}
+          </Form>
+            // <div className="custom">
+            //     <h1>CustomPiece Form</h1>
+            //     <form onSubmit={(e) => this.handleSubmit(e)}>
+            //     <label for="description">DESCRIPTION:</label>
+            //     <input onChange={this.handleChange} type="text" id="description" name="description"></input>
+            //     <label for="price">WTP:</label>
+            //     <input onChange={this.handleChange} type="number" id="price" name="price"></input>
+            //     <input type="submit"></input>
+            //     </form>
+            // </div>
          )
      }
 

@@ -3,11 +3,13 @@ import EditForm from './EditForm';
 import React, { useState, useEffect } from "react"
 import Jewelry from "./Jewelry"
 import Item from "./Item"
+import CustomPieceFoem from './CustomPieceForm';
+import {Button} from "react-bootstrap"
 
 
 function ShoppingCart(props) {
 
-
+  
 
 
 
@@ -42,9 +44,9 @@ function ShoppingCart(props) {
     return (
         <div className="cart">
             <h1>Cart</h1>
-            {/* //            <header>
-    //     <button>Go to Cart ({cart.length})</button>
-    //   </header> */}
+        {/* <button onClick={props.clearCart}>Clear Cart</button> */}
+        <Button onClick={props.clearCart} variant="outline-danger">Clear</Button>{' '}
+
             {props.cart.map(jewelry => {
                 <button disabled={props.cart.includes(jewelry.id)}>...</button>
                 console.log(jewelry)
@@ -54,23 +56,18 @@ function ShoppingCart(props) {
                     jewelry={jewelry}
                     cart={props.cart}
                     removeItem={props.removeItem}
+                    addTocart={props.addTocart}
                     
                     
                     />
                     );
+                   
                 })}
-            {/* {props.cart.map((jewelry, idx) => {
-                        return (
-                            // console.log(jewelry)
-                            <Jewelry
-                                key={idx}
-                                jewelry={jewelry}
-                                
-                                />
-                                );
-                    })} */}
+<div>Amount: ${props.getTotalSum()}</div>
+            
         </div>
     )
+    
 }
 
 
