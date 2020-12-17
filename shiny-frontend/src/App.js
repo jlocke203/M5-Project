@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css'
 import JewelryContainer from "./components/JewelryContainer"
-import { BrowserRouter, Route, Switch } from "react-router-dom"
+
 import Jewelry from './components/Jewelry';
 import JewelryList from "./components/JewelryList"
 import CustomPieceForm from "./components/CustomPieceForm"
@@ -19,6 +19,15 @@ import ShoppingCart from './components/ShoppingCart';
 import MainContainer from './components/MainContainer';
 import {Navbar, Nav, Form, Button, FormControl} from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import SideBar from './components/Sidebar'
+import Necklaces from './Pages/Necklaces'
+import Pendants from './Pages/Pendants';
+import Watches from './Pages/Watches';
+import Rings from './Pages/Rings';
+
+
+
 
 
 const PAGE_JEWLERY = ''
@@ -161,10 +170,10 @@ const clearCart = () => {
     <Button onClick={() => navigateTo(PAGE_JEWLERY)} variant="outline-info">Ice</Button>
     <Button onClick={() => navigateTo(PAGE_FORM)} variant="outline-info">Customz</Button>
     </Nav>
-    <Button style={{ marginLeft: "auto", marginRight: "1vw"}} onClick={() => navigateTo(PAGE_CART)} variant="outline-info">Cart ({cart.length})</Button>
+  <Button style={{ marginLeft: "auto", marginRight: "1vw"}} onClick={() => navigateTo(PAGE_CART)} variant="outline-info">Cart ({cart.length})</Button>
    
     {user ? (
-    <Button onClick={handleLogout}>Logout</Button>
+    <Button variant="info" onClick={handleLogout}>Logout</Button>
     ) : (
       null
     )}
@@ -179,6 +188,8 @@ const clearCart = () => {
        
        
       </Navbar>
+
+      
       
       {/* {page === PAGE_JEWLERY && <JewelryContainer addToCart={addToCart}/>}
       {page === PAGE_CART && <ShoppingCart />} */}

@@ -28,21 +28,25 @@
   color: #61dafb;
 }
 
-.ice{
+/* .ice{
   border: 1px turquoise;
 
  
   
   
-}
+} */
 
-.jewlImg {
+/* .jewlImg {
   width: 65%
-}
+} */
 
 .cards{
   display: flex;
+  
 }
+
+
+
 
 
 

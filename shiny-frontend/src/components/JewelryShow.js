@@ -4,13 +4,11 @@ import MainContainer from "./MainContainer";
 
 
 const JewelryShow = () => {
-   
+   return(
+       <div>
+           
+       </div>
+   )
 
-    return (
-        <div className="show">
-            
-        </div>
-    )
-}
-
+ 
 export default JewelryShow

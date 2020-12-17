@@ -22,11 +22,6 @@ class JeweleryContainer extends Component {
         .then((jewel) => this.setState({allJewelry: jewel}))
     }
 
-   filterJewelry = () => {
-        this.state.allJewelry.filter(jewelry => {
-            return jewelry.name 
-        })
-    }
     
     // addToCart = (jewelry) => {
     //     this.setState({
@@ -67,19 +62,11 @@ class JeweleryContainer extends Component {
         console.log(this.state.allJewelry)
         return(
            
-            <div className="jewlContainer">
-                {/* <ShoppingCart jewelries={this.state.allJewelry}/> */}
-                {/* <CustomPieceForm addToCart={this.addToCart}/> */}
-                {/* <button onClick={this.updateFilter}>Necklaces</button> */}
-               {/* <button onClick={this.props.handleLogout}>Logout</button> */}
+            <div>
                
-               <JewelryList jewelries={this.state.allJewelry.filter(jewelry => jewelry.name.toLowerCase().includes("necklace"))} addToCart={this.props.addToCart} navigateTo={this.props.navigateTo}  /> 
                
-               <JewelryList jewelries={this.state.allJewelry.filter(jewelry => jewelry.name.toLowerCase().includes("pendant"))} addToCart={this.props.addToCart} navigateTo={this.props.navigateTo}  /> 
+               <JewelryList jewelries={this.props.jewelries} addToCart={this.props.addToCart} navigateTo={this.props.navigateTo}  /> 
                
-               <JewelryList jewelries={this.state.allJewelry.filter(jewelry => jewelry.name.toLowerCase().includes("ring"))} addToCart={this.props.addToCart} navigateTo={this.props.navigateTo}  /> 
-               
-               <JewelryList jewelries={this.state.allJewelry.filter(jewelry => jewelry.name.toLowerCase().includes("datejust"))} addToCart={this.props.addToCart} navigateTo={this.props.navigateTo}  /> 
 
                
 

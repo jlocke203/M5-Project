@@ -1,11 +1,16 @@
 import React, { Component } from "react";
-import {Form, Row, Col, Button} from "react-bootstrap"
+import {Form, Row, Col, Button, Modal} from "react-bootstrap"
 
  class CustomPieceFoem extends Component {
      state = {
          description: "",
-         price: ""
+         price: "",
+         show: false
      }
+
+     handleModal = () => {
+        this.setState({show: !this.state.show})
+    }
 
     
     handleSubmit = (e) => {
@@ -33,7 +38,20 @@ import {Form, Row, Col, Button} from "react-bootstrap"
                 <Form.Control placeholder="Amount" />
               </Col>
             </Row>
-              <Button variant="success">Send</Button>{''}
+              <Button onClick={() =>{this.handleModal()}}  variant="success">Send</Button>{''}
+              <Modal show={this.state.show}>
+
+                        <Modal.Header></Modal.Header>
+                        <Modal.Body>
+                            Our team will contact you shortly to discuss more about your piece. Thank you
+                        </Modal.Body>
+                        <Modal.Footer>
+            
+                            <Button onClick={() =>{this.handleModal()}}>
+                                Understood
+                            </Button>
+                        </Modal.Footer>
+                                 </Modal>
           </Form>
             // <div className="custom">
             //     <h1>CustomPiece Form</h1>

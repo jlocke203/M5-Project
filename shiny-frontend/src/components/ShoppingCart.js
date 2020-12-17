@@ -41,15 +41,16 @@ function ShoppingCart(props) {
 
 
     // const [cart, setCart] = useState([])
+    console.log(props.cart)
     return (
         <div className="cart">
             <h1>Cart</h1>
         {/* <button onClick={props.clearCart}>Clear Cart</button> */}
-        <Button onClick={props.clearCart} variant="outline-danger">Clear</Button>{' '}
+        <Button onClick={props.clearCart} variant="danger">Clear</Button>{' '}
 
             {props.cart.map(jewelry => {
-                <button disabled={props.cart.includes(jewelry.id)}>...</button>
-                console.log(jewelry)
+                <button disabled={props.cart.includes(jewelry.id)}></button>
+                console.log(props.cart)
                 return (
                     <Item
                     key={jewelry.id}
@@ -63,9 +64,11 @@ function ShoppingCart(props) {
                     );
                    
                 })}
+
 <div>Amount: ${props.getTotalSum()}</div>
             
         </div>
+        
     )
     
 }
